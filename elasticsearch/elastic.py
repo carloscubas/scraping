@@ -29,15 +29,20 @@ def create_index(es_object, index_name):
                 "dynamic": "strict",
                 "properties": {
                     "title": {
-                        "type": "string"
+                        "type": "text",
+                        "analyser" : "portugues_analyser_custom"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "text",
+                        "analyser" : "portugues_analyser_custom"
                     },
                     "ingredients": {
                         "type": "nested",
                         "properties": {
-                            "step": {"type": "string"}
+                            "step": {
+                            	"type": "text",
+                        		"analyser" : "portugues_analyser_custom"
+                        	}
                         }
                     },
                 }
